@@ -1,0 +1,102 @@
+<header align="center">
+    <h2>Arsenal Recruitement Team - reactive form</h2>
+</header>
+<div class="form-image">
+    <div class="image">
+        <img src="https://i.pinimg.com/originals/05/d0/4e/05d04e142dd0f9a4163441eb0c1172b6.jpg" alt="">
+    </div>
+
+    <form action="" [formGroup]="form" (ngSubmit)="submitData()">
+
+        <div class="div" formGroupName="PersonalDetails">
+
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" placeholder="Enter Your Name" class="inputs"
+                    formControlName="name">
+                <span class="error"
+                    *ngIf="!form.get('PersonalDetails.name')?.valid && form.get('PersonalDetails.name')?.touched">
+
+                    <span class="error" *ngIf="form.get('PersonalDetails.name')!.errors!['required']"> Name cannot be empty</span> <br>
+
+                    <span class="error" *ngIf="form.get('PersonalDetails.name')!.errors!['forbbidenName']"> Forbidden user name</span>
+
+
+                </span> <br>
+                   
+
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="Enter Your Email" class="inputs"
+                    formControlName="email">
+                <span class="error" *ngIf="!form.get('PersonalDetails.email')?.valid && form.get('PersonalDetails.email')?.touched">
+
+                    <span class="error" *ngIf="form.get('PersonalDetails.email')!.errors!['required']"> PLease Enter an
+                        email</span>
+                        
+                    <span class="error" *ngIf="form.get('PersonalDetails.email')!.errors!['email']"> PLease Enter A Valid email</span>
+
+
+                </span>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <!-- <input type="phone" name="phone" id="phone" placeholder="Enter Your Phone Number" class="inputs" ngModel
+                    required #phone="ngModel" pattern="[0-9]*"> -->
+                <input type="phone" name="phone" id="phone" placeholder="Enter Your Phone Number" class="inputs"
+                    formControlName="phone">
+
+                <span class="error" *ngIf="!form.get('PersonalDetails.phone')?.valid && form.get('PersonalDetails.phone')?.touched">Enter A VALID Phone
+                    Number</span>
+
+                <!-- <span class="error" *ngIf="form.get('phone')?.valid">valid phone number</span> -->
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+            <label for="role">Position</label>
+            <select formControlName="role">
+                <option value="default">Select a position that fits you</option>
+                <option value="Striker">Striker</option>
+                <option value="Winger">Winger</option>
+                <option value="CDM">CDM</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="message">Add A Message</label>
+            <textarea name="message" rows="3" placeholder="Leave A Message" class="inputs"
+                formControlName="message"></textarea>
+        </div>
+
+        <div class="form-group" *ngFor="let g of genders">
+            <label for="">
+                <input type="radio" [value]="g" name="gender" formControlName="gender" />{{g}}
+            </label>
+        </div>
+
+        <div class="form-group" formArrayName="hobbies">
+            <p>Add Hobby</p>
+            <button style="background-color: blue;" (click)="addNewHobby()">+</button> <br>
+            <button type="reset" style="background-color: red;">Clear</button><br>
+            <!-- <button type="submit" [disabled]="!form.valid" >Add user</button> -->
+            <button type="submit">Add user</button>
+
+            <div  class="newControl"    *ngFor="let control of getControls(); let i=index">
+                <input type="text" formControlName={{i}}>
+
+                <p  class="close"  (click)="removeControl(i)">X</p>
+            </div>
+
+        </div>
+
+
+    </form>
+
+
+</div>

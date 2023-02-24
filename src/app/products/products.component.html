@@ -1,0 +1,20 @@
+<div class="product-div" >
+
+    <div class="product-card" *ngFor="let product of products">
+    <p> {{ product.id}}</p>
+    <p>{{ product.title}}</p>
+    <img src="{{ product.thumbnail}}" alt=""><br>
+    <button routerLink="/products/title/{{ product.id}}">View {{ product.title}} </button>
+</div>
+<button (click)="getData()">getData</button>
+ 
+
+</div>
+
+
+
+
+
+
+
+

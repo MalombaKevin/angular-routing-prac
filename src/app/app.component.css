@@ -1,0 +1,33 @@
+*{ 
+    margin:0;
+    padding:0; 
+ }
+
+ .navbar{ 
+    width: 100vw;  
+    border: 1px soild black;
+    background-color: black; 
+    display: flex;  
+    justify-content: space-around; 
+    height: 75px;
+}
+
+.nav-logo img { 
+    width: 100px;    
+}
+
+.nav-links{ 
+    margin-top:25px; 
+    display: flex; 
+    justify-content: space-evenly;
+    gap: 30px;
+    color: white;
+}
+
+.nav-auth-links { 
+    margin-top:25px; 
+    display: flex; 
+    justify-content: space-evenly;
+    gap: 30px; 
+    color: white;
+}

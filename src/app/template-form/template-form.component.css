@@ -1,0 +1,67 @@
+.form-image{ 
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+}
+
+.image img{ 
+   width: 324px;    
+}
+.image{ 
+    padding: 10px;   
+ }
+
+form{ 
+    padding: 5px;
+
+ }
+.form-group{ 
+    display: flex;
+    flex-direction: column; 
+    font-size: larger;
+ }
+
+ .form-group label{ 
+   color: blueviolet;
+   margin-top: 2px;
+ }
+
+ .form-group .inputs{ 
+    width: 400px;
+    height: 40px;
+  }
+
+.form-group button{ 
+background-color: green;
+border: none;
+color: white;
+font-weight: 800;
+padding: 10px;
+}
+
+.error{ 
+   color: red;
+   font-weight: 900;
+}
+
+input.ng-invalid.ng-touched{ 
+   border: 5px solid red ;   
+}
+
+textarea.ng-invalid.ng-touched{ 
+    border: 5px solid blue ;   
+ }
+
+.invalid{ 
+    background-color: grey;
+    border: 1px solid grey;
+    color: red; 
+ }
+ 
+
+ .valid{ 
+    background-color: green;
+    border:none;
+    color: white; 
+ }
+ 

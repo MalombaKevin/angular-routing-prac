@@ -1,0 +1,73 @@
+<header align="center">
+    <h2>Arsenal Recruitement Team - Template Driven Form</h2>
+</header>
+<div class="form-image">
+    <div class="image">
+        <img src="https://i.pinimg.com/originals/05/d0/4e/05d04e142dd0f9a4163441eb0c1172b6.jpg" alt="">
+    </div>
+
+    <form action="" (ngSubmit)="submitForm()" #form="ngForm">
+
+
+        <div ngModelGroup="personalDetails">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" placeholder="Enter Your Name" class="inputs" ngModel required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="Enter Your Email" class="inputs" ngModel
+                    required email #email="ngModel">
+                <span *ngIf="!email.valid && email.touched" class="error">Please Enter A Valid Email</span>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <!-- <input type="phone" name="phone" id="phone" placeholder="Enter Your Phone Number" class="inputs" ngModel
+                    required #phone="ngModel" pattern="[0-9]*"> -->
+                    <input type="phone" name="phone" id="phone" placeholder="Enter Your Phone Number" class="inputs" ngModel
+                    required #phone="ngModel">
+
+                <span *ngIf="!phone.valid && phone.touched" class="error">Enter A VALID Phone Number</span>
+            </div>
+        </div>
+
+            <div class="form-group">
+                <label for="role">Position</label>
+                <select name="role" id="role" class="inputs" [ngModel]="default" required>
+                    <option value="default">Select a position that fits you</option>
+                    <option value="Striker">Striker</option>
+                    <option value="Winger">Winger</option>
+                    <option value="CDM">CDM</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Add A Message</label>
+                <textarea name="message" rows="3" placeholder="Leave A Message" class="inputs" ngModel
+                    required></textarea>
+            </div>
+
+            <div class="form-group" *ngFor="let g of genders">
+                <label for="">
+                    <input type="radio" [value]="g" name="gender" ngModel required />{{g}}
+                </label>
+            </div>
+            <div class="form-group">
+                <button type="reset" style="background-color: red;">Clear</button><br>
+                <!-- <button type="submit" [disabled]="!form.valid" >Add user</button> -->
+                <button type="submit" [ngClass]="{invalid:!form.valid,valid:form.valid}" >Add user</button>
+                
+                <span *ngIf="!form.valid && form.touched" class="error">Enter All details</span>
+            </div>
+
+       
+    </form>
+
+   
+</div>
+
+<div class="setPatch">
+<button (click)="prePopulate()">prePopulate</button>
+</div>

@@ -1,0 +1,10 @@
+.arsenal{ 
+    display: flex;
+    justify-content: space-around;
+ }
+
+ .arsenal img{ 
+
+    height: 300px;
+   
+ }
